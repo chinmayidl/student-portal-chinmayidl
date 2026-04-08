@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+<a href="admin.html">Admin</a>
+<a href="login.html">Login</a>
+</nav>
+<div id="data"></div>
+<script>
+fetch("http://localhost:5000/getData")
+.then(res=>res.json())
+.then(data=>{
+let html="";
+data.forEach(d=>{
+html+=`<p>${d.name}</p>`;
+});
+document.getElementById("data").innerHTML=html;
+});
+</script>
+</body>
+</html>
